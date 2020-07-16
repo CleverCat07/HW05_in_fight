@@ -47,7 +47,7 @@
          <h2 align="left"><span class="color_red">Топ гравців:</span></h2>
          <h3>
          {% for the_top_users in top_users %}
-             <li align="left"><span class="color_blue">{{top_users.index(the_top_users) + 1}}. {{the_top_users.name}}: {{the_top_users.abs_win}}</span></li>
+             <li align="left"><span class="color_blue">{{top_users.index(the_top_users) + 1}}. {{the_top_users.name}}: {{the_top_users.win}}/{{the_top_users.loss}}</span></li>
          {% endfor %}
          </h3>
 

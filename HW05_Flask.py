@@ -115,11 +115,11 @@ def hello():
         if login(user_name, user_pass):
             return render_template("index.html", user_pass=user_pass, user_name=user_name, user_win=user_win, user_loss=user_loss)
         else:
-            return render_template("login.html", user_pass="", user_name=user_name, error="Невірний пароль!")
+            return render_template("login.html", top_users=top_users, users=users, user_pass="", user_name=user_name, error="Невірний пароль!")
     elif btn_login == 'LoginRefresh':
-        return render_template("login.html", user_pass="", user_name=user_name, error="", user1=user1, user2=user2, user3=user3)
+        return render_template("login.html", top_users=top_users, users=users, user_pass="", user_name=user_name, error="")
     elif btn_login == 'Quit':
-        return render_template("login.html", user_pass="", user_name=user_name, error="", user1=user1, user2=user2, user3=user3)
+        return render_template("login.html", top_users=top_users, users=users, user_pass="", user_name=user_name, error="")
 
     elif btn_login == 'fight':
 

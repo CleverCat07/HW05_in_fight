@@ -2,10 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Авторизація!</title>
+    <title>Авторизація</title>
 </head>
 <body >
     <style>
+    li {
+    list-style-type: none;
+   }
     .outline {
     border: 2px solid black;
     padding: 0 10px;
@@ -13,6 +16,8 @@
             }
     .color_red {
      color: red;}
+    .color_yellow {
+     color: yellow;}
     .color_green {
      color: green;}
     .color_blue{
@@ -39,13 +44,12 @@
            </div>
        <center>
     </form>
-            <h2>.</h2>
-             <h2>.</h2>
-             <h2>.</h2>
-             <h1 style="color:blue;; text-align:left;"> Рейтинг гравців</h1>
-             <h2 style="color:blue; text-align:left;">1. {{user1}}</h2>
-             <h2 style="color:blue; text-align:left;">2. {{user2}}</h2>
-             <h2 style="color:blue; text-align:left;">3. {{user3}}</h2>
+         <h2 align="left"><span class="color_red">Топ гравців:</span></h2>
+         <h3>
+         {% for the_top_users in top_users %}
+             <li align="left"><span class="color_blue">{{top_users.index(the_top_users) + 1}}. {{the_top_users.name}}: {{the_top_users.win}}/{{the_top_users.loss}}</span></li>
+         {% endfor %}
+         </h3>
 
     </body>
 </html>

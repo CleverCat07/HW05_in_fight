@@ -94,24 +94,28 @@ def hello():
     # if btn_refresh == 'refresh':
     #     return render_template("game.html", user_pass=user_pass, user_name=user_name, the_kick=the_kick, the_block=the_block)
 
-    user1 = ''
-    user2 = ''
-    user3 = ''
+    # user1 = ''
+    # user2 = ''
+    # user3 = ''
     top_users = get_top_users()
-
-    if len(top_users) > 0:
-        user1 = top_users[0]['name'] + ': ' + str(top_users[0]['win']) + '/' + str(top_users[0]['loss'])
-    if len(top_users) > 1:
-        user2 = top_users[1]['name'] + ': ' + str(top_users[1]['win']) + '/' + str(top_users[1]['loss'])
-    if len(top_users) > 2:
-        user3 = top_users[2]['name'] + ': ' + str(top_users[2]['win']) + '/' + str(top_users[2]['loss'])
+    #
+    # if len(top_users) > 0:
+    #     user1 = top_users[0]['name'] + ': ' + str(top_users[0]['win']) + '/' + str(top_users[0]['loss'])
+    # if len(top_users) > 1:
+    #     user2 = top_users[1]['name'] + ': ' + str(top_users[1]['win']) + '/' + str(top_users[1]['loss'])
+    # if len(top_users) > 2:
+    #     user3 = top_users[2]['name'] + ': ' + str(top_users[2]['win']) + '/' + str(top_users[2]['loss'])
 
     if btn_login == 'Login':
+        user_win  = 0
+        user_loss = 0
+
         for user in users:
             if user['name'] == user_name:
                 user_win = user['win']
                 user_loss = user['loss']
                 break
+                
         if login(user_name, user_pass):
             return render_template("index.html", user_pass=user_pass, user_name=user_name, user_win=user_win, user_loss=user_loss)
         else:

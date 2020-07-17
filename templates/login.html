@@ -33,13 +33,13 @@
 
     <form method="post" action="/" >
         <center>
+            <button name = "btn_login" value="Help" style="width:100px;height:30px"><b>Інструкція</b></button>
             <div class="outline">
             <h1><span class="color_red">Знову в бій!</span></h1>
             <h2>Авторизуйтеся</h2>
-            <p>Логін: 	&#160; <input name="user_name" title="Новий користувач при першому вході буде зареєстрований" required value={{user_name}} ></p>
-            <p>Пароль: <input name="user_pass" required type="password" value={{user_pass}}></p>
+            <p>Логін: 	&#160; <input name="user_name" title="Новий користувач при першому вході буде зареєстрований"  value={{user_name}} ></p>
+            <p>Пароль: <input name="user_pass" type="password" value={{user_pass}}></p>
             <p><span class="color_red">{{error}}</span></p>
-            <!-- <button name = "btn_login" value="Login"> Увійти</button> -->
             <button name = "btn_login" value="Login" style="width:100px;height:30px"><b>Увійти</b></button>
            </div>
        <center>

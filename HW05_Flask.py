@@ -38,10 +38,12 @@ def get_top_users():
 fight = []
 users = []
 
-with open("users.json") as users_file:
-    users = json.load(users_file)
-
-# print(get_top_users())
+try:
+    with open("/home/CleverCat07/mysite/users.json") as users_file:
+        users = json.load(users_file)
+except:
+    with open("users.json") as users_file:
+        users = json.load(users_file)
 
 app = Flask(__name__)
 
@@ -51,7 +53,9 @@ def hello():
     user_pass = request.form.get('user_pass', '')
     btn_login = request.form.get('btn_login', 'LoginRefresh')
     btn_index = request.form.get('btn_index', '')
+    btn_help  = request.form.get('btn_help', '')
     btn_refresh = request.form.get('btn_refresh', '')
+    btn_login_go = request.form.get('btn_login_go', '')
     result = request.form.get('result', '')
     the_kick = request.form.get('the_kick', '')
     the_block = request.form.get('the_block', '')
@@ -59,6 +63,13 @@ def hello():
     enemy_result = request.form.get('enemy_result', '')
     kick = request.form.get('kick', '')
     block = request.form.get('block', '')
+
+    if btn_login_go == 'login_go':
+        top_users = get_top_users()
+        return render_template("login.html", top_users=top_users, users=users, user_pass="", user_name=user_name, error="")
+
+    if btn_login == 'Help':
+        return render_template("help.html")
 
     if btn_refresh == 'refresh':
         i = 0
@@ -107,7 +118,7 @@ def hello():
     #     user3 = top_users[2]['name'] + ': ' + str(top_users[2]['win']) + '/' + str(top_users[2]['loss'])
 
     if btn_login == 'Login':
-        user_win  = 0
+        user_win = 0
         user_loss = 0
 
         for user in users:
